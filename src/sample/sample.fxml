@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane dividerPositions="0.5451505016722408" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <Label fx:id="actionsLabel" prefHeight="70.0" prefWidth="323.0" textAlignment="RIGHT">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label fx:id="resultLabel" focusTraversable="false" layoutX="167.0" layoutY="70.0" prefHeight="47.0" prefWidth="151.0" textAlignment="RIGHT">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="trueBtn" focusTraversable="false" layoutX="2.0" layoutY="448.0" onAction="#setTrue" pickOnBounds="false" prefHeight="80.0" prefWidth="80.0" stylesheets="@../mainButtons.css" text="True" textAlignment="CENTER" wrapText="true" />
+            <JFXButton fx:id="falseBtn" focusTraversable="false" layoutX="82.0" layoutY="448.0" onAction="#setFalse" prefHeight="80.0" prefWidth="80.0" stylesheets="@../mainButtons.css" text="False" textAlignment="CENTER" wrapText="true" />
+            <JFXButton fx:id="nullBtn" focusTraversable="false" layoutX="162.0" layoutY="448.0" onAction="#setNull" prefHeight="80.0" prefWidth="80.0" stylesheets="@../mainButtons.css" text="Null" textAlignment="CENTER" wrapText="true" />
+            <JFXButton fx:id="equalsBtn" focusTraversable="false" layoutX="242.0" layoutY="448.0" onAction="#equals" prefHeight="80.0" prefWidth="80.0" stylesheets="@../mainButtons.css" text="=" textAlignment="CENTER" wrapText="true" />
+            <JFXButton id="conjunction" fx:id="disjunctionBtn" focusTraversable="false" layoutX="2.0" layoutY="368.0" onAction="#disjunction" prefHeight="80.0" prefWidth="80.0" stylesheets="@../actionButtons.css" text="V" textAlignment="CENTER" wrapText="true" />
+            <JFXButton fx:id="conjunctionBtn" focusTraversable="false" layoutX="82.0" layoutY="368.0" onAction="#conjunction" prefHeight="80.0" prefWidth="80.0" stylesheets="@../actionButtons.css" text="^" textAlignment="CENTER" wrapText="true" />
+            <JFXButton fx:id="equivalenceBtn" focusTraversable="false" layoutX="162.0" layoutY="368.0" onAction="#equivalence" prefHeight="80.0" prefWidth="80.0" stylesheets="@../actionButtons.css" text="~" textAlignment="CENTER" wrapText="true" />
+            <JFXButton id="addingOfModule2" fx:id="exclusiveDisjunctionBtn" focusTraversable="false" layoutX="242.0" layoutY="368.0" onAction="#exclusiveDisjunction" prefHeight="80.0" prefWidth="80.0" stylesheets="@../actionButtons.css" text="⊕ " textAlignment="CENTER" wrapText="true" />
+            <JFXButton fx:id="implicationBtn" focusTraversable="false" layoutX="2.0" layoutY="288.0" onAction="#implication" prefHeight="80.0" prefWidth="80.0" stylesheets="@../actionButtons.css" text="→" textAlignment="CENTER" wrapText="true" />
+            <JFXButton fx:id="reverseImplicationBtn" focusTraversable="false" layoutX="82.0" layoutY="288.0" onAction="#reverseImplication" prefHeight="80.0" prefWidth="80.0" stylesheets="@../actionButtons.css" text="←" textAlignment="CENTER" wrapText="true" />
+            <JFXButton fx:id="notImplicationBtn" focusTraversable="false" layoutX="162.0" layoutY="288.0" onAction="#notImplication" prefHeight="80.0" prefWidth="80.0" stylesheets="@../actionButtons.css" text="!→" textAlignment="CENTER" wrapText="true" />
+            <JFXButton fx:id="notReverseImplicationBtn" focusTraversable="false" layoutX="242.0" layoutY="288.0" onAction="#notReverseImplication" prefHeight="80.0" prefWidth="80.0" stylesheets="@../actionButtons.css" text="!←" textAlignment="CENTER" wrapText="true" />
+            <JFXButton fx:id="constTrueBtn" focusTraversable="false" layoutX="2.0" layoutY="208.0" onAction="#constTrue" prefHeight="80.0" prefWidth="80.0" stylesheets="@../wordActionButtons.css" text="const 1" textAlignment="CENTER" wrapText="true" />
+            <JFXButton fx:id="constFalseBtn" focusTraversable="false" layoutX="82.0" layoutY="208.0" onAction="#constFalse" prefHeight="80.0" prefWidth="80.0" stylesheets="@../wordActionButtons.css" text="const 0" textAlignment="CENTER" wrapText="true" />
+            <JFXButton fx:id="shefferBrushBtn" focusTraversable="false" layoutX="162.0" layoutY="208.0" onAction="#shefferBrush" prefHeight="80.0" prefWidth="80.0" stylesheets="@../actionButtons.css" text="|" textAlignment="CENTER" wrapText="true" />
+            <JFXButton fx:id="pierceArrowBtn" focusTraversable="false" layoutX="242.0" layoutY="208.0" onAction="#pierceArrow" prefHeight="80.0" prefWidth="80.0" stylesheets="@../actionButtons.css" text="↓" textAlignment="CENTER" wrapText="true" />
+            <JFXButton fx:id="repeatFirstArgBtn" focusTraversable="false" layoutX="2.0" layoutY="168.0" onAction="#repeatFirstArg" prefHeight="40.0" prefWidth="120.0" stylesheets="@../wordActionButtons.css" text="repeat first" textAlignment="JUSTIFY" wrapText="true" />
+            <JFXButton fx:id="repeatSecondArgBtn" focusTraversable="false" layoutX="2.0" layoutY="128.0" onAction="#repeatSecondArg" prefHeight="40.0" prefWidth="120.0" stylesheets="@../wordActionButtons.css" text="repeat second" textAlignment="CENTER" wrapText="true" />
+            <JFXButton fx:id="notFirstArgBtn" focusTraversable="false" layoutX="122.0" layoutY="168.0" onAction="#notFirstArg" prefHeight="40.0" prefWidth="120.0" stylesheets="@../wordActionButtons.css" text="not first " textAlignment="CENTER" wrapText="true" />
+            <JFXButton fx:id="notSecondArgBtn" focusTraversable="false" layoutX="122.0" layoutY="128.0" onAction="#notSecondArg" prefHeight="40.0" prefWidth="120.0" stylesheets="@../wordActionButtons.css" text="not second" textAlignment="CENTER" wrapText="true" />
+            <JFXButton fx:id="clearBtn" focusTraversable="false" layoutX="242.0" layoutY="128.0" onAction="#clear" prefHeight="80.0" prefWidth="80.0" stylesheets="@../actionButtons.css" text="C" textAlignment="CENTER" wrapText="true" />
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="278.0">
+         <children>
+            <JFXTextArea fx:id="historyOfActionsTextArea" editable="false" layoutX="-120.0" layoutY="205.0" prefHeight="528.0" prefWidth="269.0" stylesheets="@../actionButtons.css" text="History of actions:&#10;" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXTextArea>
+         </children></AnchorPane>
+  </items>
+</SplitPane>
