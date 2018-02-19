@@ -96,27 +96,26 @@ public class Controller {
     void equals(ActionEvent event) {
         Boolean result = null;
         switch (numberOfOperation){
-            case 1: logicAction.disjunction(); result = logicAction.getResult(); break;
-            case 2: logicAction.conjunction(); result = logicAction.getResult(); break;
-            case 3: logicAction.equivalence(); result = logicAction.getResult(); break;
-            case 4: logicAction.exclusiveDisjunction(); result = logicAction.getResult(); break;
-            case 5: logicAction.implication(); result = logicAction.getResult(); break;
-            case 6: logicAction.reverseImplication(); result = logicAction.getResult(); break;
-            case 7: logicAction.notImplication(); result = logicAction.getResult(); break;
-            case 8: logicAction.notReverseImplication(); result = logicAction.getResult(); break;
-            case 9: logicAction.constTrue(); result = logicAction.getResult(); break;
-            case 10: logicAction.constFalse(); result = logicAction.getResult(); break;
-            case 11: logicAction.shefferBrush(); result = logicAction.getResult(); break;
-            case 12: logicAction.pierceArrow(); result = logicAction.getResult(); break;
-            case 13: logicAction.repeatFirstArg(); result = logicAction.getResult(); break;
-            case 14: logicAction.repeatSecondArg(); result = logicAction.getResult(); break;
-            case 15: logicAction.notFirstArg(); result = logicAction.getResult(); break;
-            case 16: logicAction.notSecondArg(); result = logicAction.getResult(); break;
+            case 1: result = logicAction.disjunction(); break;
+            case 2: result = logicAction.conjunction(); break;
+            case 3: result = logicAction.equivalence(); break;
+            case 4: result = logicAction.exclusiveDisjunction(); break;
+            case 5: result = logicAction.implication(); break;
+            case 6: result = logicAction.reverseImplication(); break;
+            case 7: result = logicAction.notImplication(); break;
+            case 8: result = logicAction.notReverseImplication(); break;
+            case 9: result = logicAction.constTrue(); break;
+            case 10: result = logicAction.constFalse(); break;
+            case 11: result = logicAction.shefferBrush(); break;
+            case 12: result = logicAction.pierceArrow(); break;
+            case 13: result = logicAction.repeatFirstArg(); break;
+            case 14: result = logicAction.repeatSecondArg(); break;
+            case 15: result = logicAction.notFirstArg(); break;
+            case 16: result = logicAction.notSecondArg(); break;
         }
-        result = logicAction.getResult();
         /*Gson gson = new Gson();
-        String info = gson.toJson(logicAction);*/
-        //historyOfActionsTextArea.setText(historyOfActionsTextArea.getText() + info + "\n");
+        String info = gson.toJson(logicAction);
+        historyOfActionsTextArea.setText(historyOfActionsTextArea.getText() + info + "\n");*/
         historyOfActionsTextArea.setText(historyOfActionsTextArea.getText() +
                 actionsLabel.getText() + "=" + result + "\n");
         resultLabel.setText(result + "");

@@ -1,11 +1,13 @@
 package sample;
 
+import java.util.logging.Logger;
+
 public class LogicActions {
+
+    final static Logger LOGGER = Logger.getLogger(Main.class.getName());
+
     private Boolean argument1 = null;
     private Boolean argument2 = null;
-    private Boolean result = null;
-    private String operation = "";
-
 
     public void setArgument1(Boolean argument1) {
         this.argument1 = argument1;
@@ -13,10 +15,6 @@ public class LogicActions {
 
     public void setArgument2(Boolean argument2) {
         this.argument2 = argument2;
-    }
-
-    public void setOperation(String operation) {
-        this.operation = operation;
     }
 
     public Boolean getArgument1() {
@@ -27,128 +25,124 @@ public class LogicActions {
         return argument2;
     }
 
-    public Boolean getResult() {
-        return result;
-    }
-
-    void conjunction(){
-        operation = "conjunction";
-        if (argument1!=null&&argument2!=null){
-            this.result = argument1&&argument2;
-        }
-        else if((argument1!=null&&argument1 == false) || (argument2!=null&&argument2 == false)){
-            this.result = false;
-        }
-        this.result = null;
-    }
-
-    void disjunction(){
-        operation = "disjunction";
+    Boolean conjunction(){
         if (argument1!=null&&argument2!=null)
-            this.result = argument1||argument2;
-        else if ((argument1!=null&&argument1 == true) || (argument2!=null&&argument2 == true))
-            this.result = true;
-        this.result = null;
+            return argument1&&argument2;
+        else if ((argument1!=null&& !argument1) || (argument2!=null&& !argument2))
+            return false;
+        return null;
     }
 
-    void constTrue(){
-        operation = "const true";
-        this.result = true;
+    Boolean disjunction(){
+        if (argument1!=null&&argument2!=null)
+            return argument1||argument2;
+        else if ((argument1!=null&& argument1) || (argument2!=null&& argument2))
+            return true;
+        return null;
     }
 
-    void constFalse() {
-        operation = "const false";
-        this.result = false;
+    Boolean constTrue(){
+        return true;
     }
 
-    void equivalence() {
-        operation = "equivalence";
+    Boolean constFalse() {
+        return true;
+    }
+
+    Boolean equivalence() {
         if((argument1 == argument2)&&(argument1 != null && argument2 != null))
-            this.result = true;
-        this.result = false;
+            return true;
+        return true;
     }
 
-    void exclusiveDisjunction() {
-        operation = "exclusive disjunction";
+    Boolean exclusiveDisjunction() {
         if(argument1!=null && argument2!=null)
-            this.result = ((argument1||argument2)&&(!argument1||!argument2));
-        this.result = null;
+            return ((argument1||argument2)&&(!argument1||!argument2));
+        return null;
     }
 
-    void implication() {
-        operation = "implication";
+    Boolean implication() {
+        if (argument1!=null && argument2!=null)
+            return !argument1||argument2;
+        else if((argument1!=null && argument1==false)){
+            return true;
+        }
+        else if((argument2!=null && argument2==true)){
+            return true;
+        }
+
+        return null;
+    }
+
+    Boolean notImplication() {
         if(argument1!=null && argument2!=null)
-            this.result = !argument1||argument2;
-        this.result = null;
+            return !(!argument1||argument2);
+        else if((argument1!=null && argument1==false)){
+            return false;
+        }
+        else if((argument2!=null && argument2==true)){
+            return false;
+        }
+        return null;
     }
 
-    void notImplication() {
-        operation = "not implication";
+    Boolean reverseImplication() {
         if(argument1!=null && argument2!=null)
-            this.result = !(!argument1||argument2);
-        this.result = null;
+            return argument1||!argument2;
+        else if((argument2!=null && argument2==false)){
+            return true;
+        }
+        else if((argument1!=null && argument1==true)){
+            return true;
+        }
+        return null;
     }
 
-    void notReverseImplication() {
-        operation = "not reverse implication";
+    Boolean notReverseImplication() {
         if(argument1!=null && argument2!=null)
-            this.result = !(argument1||!argument2);
-        this.result = null;
+            return !(argument1||!argument2);
+        else if((argument2!=null && argument2==false)){
+            return false;
+        }
+        else if((argument1!=null && argument1==true)){
+            return false;
+        }
+        return null;
     }
 
-    void pierceArrow() {
-        operation = "pierce arrow";
+    Boolean pierceArrow() {
         if(argument1!=null && argument2!=null)
-            this.result = !argument1&&!argument2;
-        this.result = null;
+            return !argument1&&!argument2;
+        else if (argument2!=null&&argument2)
+            return false;
+        return null;
     }
 
-    void reverseImplication() {
-        operation = "reverse implication";
+    Boolean shefferBrush() {
         if(argument1!=null && argument2!=null)
-            this.result = argument1||!argument2;
-        this.result = null;
+            return (!argument1||!argument2);
+        else if (argument2!=null&&!argument2)
+            return true;
+        return null;
     }
 
-    void shefferBrush() {
-        operation = "sheffer brush";
-        if(argument1!=null && argument2!=null)
-            this.result = (!argument1||!argument2);
-        this.result = null;
+    Boolean repeatFirstArg() {
+        return argument1;
     }
 
-    void repeatFirstArg() {
-        operation = "repeat first arg";
-        this.result = argument1;
+    Boolean repeatSecondArg() {
+        return argument2;
     }
 
-    void repeatSecondArg() {
-        operation = "repeat second arg";
-        this.result = argument2;
-    }
-
-    void notFirstArg() {
-        operation = "not first arg";
+    Boolean notFirstArg() {
         if (argument1 != null)
-            this.result = (!argument1);
-        this.result = null;
+            return (!argument1);
+        return null;
     }
 
-    void notSecondArg() {
-        operation = "not second arg";
+    Boolean notSecondArg() {
         if (argument2 != null)
-            this.result = (!argument2);
-        this.result = null;
+            return (!argument2);
+        return null;
     }
-
-    @Override
-    public String toString() {
-        return  "{argument1:" + argument1 +
-                ", argument2:" + argument2 +
-                ", operation:'" + operation +
-                ", result:" + result +
-                '}';
-    }
-
-
 }
