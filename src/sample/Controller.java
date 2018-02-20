@@ -9,7 +9,11 @@ import javafx.geometry.Pos;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 
+import java.util.logging.Logger;
+
 public class Controller {
+
+    final static Logger LOGGER = Logger.getLogger(Main.class.getName());
 
     @FXML
     private Label actionsLabel;
@@ -94,6 +98,7 @@ public class Controller {
 
     @FXML
     void equals(ActionEvent event) {
+        LOGGER.info("Button equals is clicked");
         Boolean result = null;
         switch (numberOfOperation){
             case 1: result = logicAction.disjunction(); break;
@@ -125,6 +130,7 @@ public class Controller {
 
     @FXML
     void clear(ActionEvent event) {
+        LOGGER.info("Button clear is clicked");
         ifArg1Set = false;
         numberOfOperation = 0;
         actionsLabel.setText("");
@@ -133,18 +139,21 @@ public class Controller {
 
     @FXML
     void disjunction(ActionEvent event) {
+        LOGGER.info("Button disjunction is clicked");
         numberOfOperation = 1;
         actionsLabel.setText(actionsLabel.getText() + " V ");
     }
 
     @FXML
     void conjunction(ActionEvent event) {
+        LOGGER.info("Button conjunction is clicked");
         numberOfOperation = 2;
         actionsLabel.setText(actionsLabel.getText() + " ^ ");
     }
 
     @FXML
     void equivalence(ActionEvent event) {
+        LOGGER.info("Button equivalence is clicked");
         numberOfOperation = 3;
         actionsLabel.setText(actionsLabel.getText() + " ~ ");
 
@@ -152,6 +161,7 @@ public class Controller {
 
     @FXML
     void exclusiveDisjunction(ActionEvent event) {
+        LOGGER.info("Button exclusiveDisjunction is clicked");
         numberOfOperation = 4;
         actionsLabel.setText(actionsLabel.getText() + " ⊕ ");
 
@@ -159,78 +169,91 @@ public class Controller {
 
     @FXML
     void implication(ActionEvent event) {
+        LOGGER.info("Button implication is clicked");
         numberOfOperation = 5;
         actionsLabel.setText(actionsLabel.getText() + " → ");
     }
 
     @FXML
     void reverseImplication(ActionEvent event) {
+        LOGGER.info("Button reverseImplication is clicked");
         numberOfOperation = 6;
         actionsLabel.setText(actionsLabel.getText() + " ← ");
     }
 
     @FXML
     void notImplication(ActionEvent event) {
+        LOGGER.info("Button notImplication is clicked");
         numberOfOperation = 7;
         actionsLabel.setText(actionsLabel.getText() + " !→ ");
     }
 
     @FXML
     void notReverseImplication(ActionEvent event) {
+        LOGGER.info("Button notReverseImplication is clicked");
         numberOfOperation = 8;
         actionsLabel.setText(actionsLabel.getText() + " !← ");
     }
 
     @FXML
     void constTrue(ActionEvent event) {
+        LOGGER.info("Button constTrue is clicked");
         numberOfOperation = 9;
         actionsLabel.setText(actionsLabel.getText() + " (const 1) ");
     }
 
     @FXML
     void constFalse(ActionEvent event) {
+        LOGGER.info("Button constFalse is clicked");
         numberOfOperation = 10;
         actionsLabel.setText(actionsLabel.getText() + " (const 0) ");
     }
 
     @FXML
     void shefferBrush(ActionEvent event) {
+        LOGGER.info("Button shefferBrush is clicked");
         numberOfOperation = 11;
         actionsLabel.setText(actionsLabel.getText() + " | ");
     }
 
     @FXML
     void pierceArrow(ActionEvent event) {
+        LOGGER.info("Button pierceArrow is clicked");
         numberOfOperation = 12;
         actionsLabel.setText(actionsLabel.getText() + " ↓ ");
     }
 
     @FXML
     void repeatFirstArg(ActionEvent event) {
+        LOGGER.info("Button repeatFirstArg is clicked");
         numberOfOperation = 13;
         actionsLabel.setText(actionsLabel.getText() + " (repeat first argument) ");
     }
 
     @FXML
     void repeatSecondArg(ActionEvent event) {
+        LOGGER.info("Button repeatSecondArg is clicked");
         numberOfOperation = 14;
         actionsLabel.setText(actionsLabel.getText() + " (repeat second argument) ");
     }
 
     @FXML
     void notFirstArg(ActionEvent event) {
+        LOGGER.info("Button notFirstArg is clicked");
         numberOfOperation = 15;
         actionsLabel.setText(actionsLabel.getText() + " (not first argument) ");
     }
 
     @FXML
     void notSecondArg(ActionEvent event) {
+        LOGGER.info("Button notSecondArg is clicked");
         numberOfOperation = 16;
         actionsLabel.setText(actionsLabel.getText() + " (not second argument) ");
     }
 
     @FXML
     void setFalse(ActionEvent event) {
+        LOGGER.info("Button setFalse is clicked");
         if(ifArg1Set) {logicAction.setArgument2(false);}
         else {logicAction.setArgument1(false); ifArg1Set = true;}
         actionsLabel.setText(actionsLabel.getText() + "false");
@@ -238,6 +261,7 @@ public class Controller {
 
     @FXML
     void setNull(ActionEvent event) {
+        LOGGER.info("Button setNull is clicked");
         if(ifArg1Set) {logicAction.setArgument2(null);}
         else {logicAction.setArgument1(null); ifArg1Set = true;}
         actionsLabel.setText(actionsLabel.getText() + "null");
@@ -245,6 +269,7 @@ public class Controller {
 
     @FXML
     void setTrue(ActionEvent event) {
+        LOGGER.info("Button setTrue is clicked");
         if(ifArg1Set) {logicAction.setArgument2(true);}
         else {logicAction.setArgument1(true); ifArg1Set = true;}
         actionsLabel.setText(actionsLabel.getText() + "true");
